@@ -1,11 +1,16 @@
 <template>
   <div>
     <h1>{{ name }}</h1>
+    <section>
+      <input type="text" v-model="todo" />
+      <button @click="create">add</button>
+    </section>
     <section v-if="todoList.length === 0">
       <p>尚無資料</p>
     </section>
-    <section v-else>
-      <p v-for="item in todoList" :key="item">{{ item }}</p>
+    <section v-else v-for="item in todoList" :key="item.id">
+      <p>{{ item.todo }}</p>
+      <button>delete</button>
     </section>
   </div>
 </template>
@@ -19,9 +24,15 @@ export default {
       todoList: []
     };
   },
-  create() {},
-  update() {},
-  delete() {}
+  methods: {
+    create() {
+      this.todoList.push({
+        id: new Date().getTime(),
+        todo: this.todo
+      });
+      this.todo = "";
+    }
+  }
 };
 </script>
 
