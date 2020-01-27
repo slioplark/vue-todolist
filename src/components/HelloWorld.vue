@@ -1,7 +1,12 @@
 <template>
   <div>
     <h1>{{ name }}</h1>
-    <p v-for="item in todoList" :key="item">{{ item }}</p>
+    <section v-if="todoList.length === 0">
+      <p>尚無資料</p>
+    </section>
+    <section v-else>
+      <p v-for="item in todoList" :key="item">{{ item }}</p>
+    </section>
   </div>
 </template>
 
@@ -11,9 +16,12 @@ export default {
   data() {
     return {
       name: "Hello World",
-      todoList: [1, 2, 3]
+      todoList: []
     };
-  }
+  },
+  create() {},
+  update() {},
+  delete() {}
 };
 </script>
 
