@@ -9,8 +9,8 @@
       <p>No Data</p>
     </section>
     <section v-else v-for="item in todoList" :key="item.id">
-      <p>{{ item.todo }}</p>
-      <button @click="remove(item.id)">remove</button>
+      <input type="text" v-model="item.todo" />
+      <button @click="remove(item)">remove</button>
     </section>
   </div>
 </template>
@@ -33,9 +33,8 @@ export default {
       });
       this.todo = "";
     },
-    remove(id) {
-      let obj = this.todoList.find(item => item.id === id);
-      let idx = this.todoList.indexOf(obj);
+    remove(data) {
+      let idx = this.todoList.indexOf(data);
       this.todoList.splice(idx, 1);
     }
   }
