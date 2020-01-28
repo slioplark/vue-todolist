@@ -6,11 +6,11 @@
       <button @click="create">add</button>
     </section>
     <section v-if="todoList.length === 0">
-      <p>尚無資料</p>
+      <p>No Data</p>
     </section>
     <section v-else v-for="item in todoList" :key="item.id">
       <p>{{ item.todo }}</p>
-      <button>delete</button>
+      <button @click="remove(item.id)">remove</button>
     </section>
   </div>
 </template>
@@ -21,6 +21,7 @@ export default {
   data() {
     return {
       name: "Hello World",
+      todo: "",
       todoList: []
     };
   },
@@ -31,6 +32,11 @@ export default {
         todo: this.todo
       });
       this.todo = "";
+    },
+    remove(id) {
+      let obj = this.todoList.find(item => item.id === id);
+      let idx = this.todoList.indexOf(obj);
+      this.todoList.splice(idx, 1);
     }
   }
 };
