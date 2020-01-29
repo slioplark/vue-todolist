@@ -11,7 +11,8 @@
       <p>No Item</p>
     </section>
     <section class="item" v-else v-for="item in todoList" :key="item.id">
-      <input type="text" v-model="item.todo" />
+      <md-checkbox v-model="item.isComplete"></md-checkbox>
+      <input type="text" v-model="item.todo" :class="{ line: item.isComplete }" />
       <md-button class="md-icon-button md-accent" @click="remove(item)">
         <md-icon>clear</md-icon>
       </md-button>
@@ -50,6 +51,7 @@ export default {
 section.item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: auto;
   width: 512px;
   input {
@@ -59,6 +61,9 @@ section.item {
     height: 40px;
     font-size: 1.5em;
     background-color: #fafafa;
+  }
+  input.line {
+    text-decoration: line-through;
   }
   & + section.item {
     border-top: 1px solid gray;
