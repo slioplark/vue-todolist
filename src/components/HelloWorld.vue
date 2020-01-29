@@ -1,12 +1,14 @@
 <template>
   <div>
     <h1>{{ name }}</h1>
-    <section>
+    <section class="item">
       <input type="text" v-model="todo" placeholder="Add New Item" />
-      <button @click="create">add</button>
+      <md-button class="md-icon-button md-primary" @click="create">
+        <md-icon>add</md-icon>
+      </md-button>
     </section>
     <section v-if="todoList.length === 0">
-      <p>No Data</p>
+      <p>No Item</p>
     </section>
     <section class="item" v-else v-for="item in todoList" :key="item.id">
       <input type="text" v-model="item.todo" />
@@ -53,6 +55,7 @@ section.item {
   input {
     outline: none;
     border: none;
+    width: 100%;
     height: 40px;
     font-size: 1.5em;
     background-color: #fafafa;
