@@ -56,6 +56,7 @@ export default {
   margin: 16px auto;
   max-width: 512px;
   min-height: 512px;
+  border-radius: 8px;
 }
 section.item {
   display: flex;
