@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Deploy github pages
+Run `npm run build` to see the [demo](https://slioplark.github.io/vue-todolist/).
