@@ -53,7 +53,7 @@ section.item {
   justify-content: space-between;
   align-items: center;
   margin: auto;
-  width: 512px;
+  max-width: 512px;
   input {
     outline: none;
     border: none;

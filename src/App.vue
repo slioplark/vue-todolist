@@ -28,4 +28,7 @@ export default {
   padding: 16px;
   max-width: 1024px;
 }
+img {
+  width: 100px;
+}
 </style>
